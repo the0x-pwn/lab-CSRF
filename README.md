@@ -1,7 +1,6 @@
 <div align="center">
 
-<!-- Replace the image below with your own professional banner -->
-![CSRF Lab Banner](https://via.placeholder.com/900x300/0d1117/00ff88?text=CSRF+Security+Lab)
+![CSRF Lab Banner](img/banner.png)
 
 # 🛡️ CSRF Security Lab
 
@@ -26,16 +25,56 @@ The lab simulates real-world vulnerable web applications and guides you through 
 
 ---
 
-## 🖼️ Lab Preview
+## 🧪 Labs
 
-<!-- Replace with your own screenshot -->
+The lab includes **multiple exploitation scenarios** covering a wide variety of CSRF attack types and bypass techniques. More labs are continuously being added.
+
+> 🔒 Each lab focuses on a different exploitation type — from simple unprotected endpoints to more sophisticated bypass methods.
+
+---
+
+### 🔬 Lab 1
+
 <div align="center">
 
-![Lab Screenshot](https://via.placeholder.com/800x450/1a1a2e/00ff88?text=📸+Add+Your+Lab+Screenshot+Here)
-
-*Screenshot: Lab interface with the CSRF Sandbox environment*
+![Lab 1](img/lab-1.png)
 
 </div>
+
+| Field | Details |
+|-------|---------|
+| 📁 Folder | `lab-1` |
+| ✅ Status | Available |
+
+---
+
+### 🔬 Lab 2
+
+<div align="center">
+
+![Lab 2](img/lab-2.png)
+
+</div>
+
+| Field | Details |
+|-------|---------|
+| 📁 Folder | `lab-2` |
+| ✅ Status | Available |
+
+---
+
+### 🔬 Lab 3
+
+<div align="center">
+
+![Lab 3](img/lab-3.png)
+
+</div>
+
+| Field | Details |
+|-------|---------|
+| 📁 Folder | `lab-3` |
+| ✅ Status | Available |
 
 ---
 
@@ -43,25 +82,10 @@ The lab simulates real-world vulnerable web applications and guides you through 
 
 All labs share the same login credentials:
 
-| Field    | Value            |
-|----------|------------------|
-| 📧 Email | `csrf@lab.com`   |
-| 🔑 Password | `csrf`        |
-
----
-
-## 🧪 Labs
-
-The lab includes **multiple exploitation scenarios** covering a wide variety of CSRF attack types and bypass techniques. More labs are continuously being added.
-
-| Lab | Status |
-|-----|--------|
-| `lab-1` | ✅ Available |
-| `lab-2` | ✅ Available |
-| `lab-3` | ✅ Available |
-| More... | 🔄 Coming Soon |
-
-> 🔒 Each lab focuses on a different exploitation type — from simple unprotected endpoints to more sophisticated bypass methods.
+| Field | Value |
+|-------|-------|
+| 📧 Email | `csrf@lab.com` |
+| 🔑 Password | `csrf` |
 
 ---
 
