@@ -92,7 +92,7 @@ The entire lab environment was built from scratch using:
 | | |
 |--|--|
 | 📁 **Folder** | `lab-1` |
-| 🎯 **Focus** | CSRF — Token Omission |
+| 🎯 **Focus** | CSRF — Token Basic |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
@@ -109,7 +109,7 @@ The entire lab environment was built from scratch using:
 | | |
 |--|--|
 | 📁 **Folder** | `lab-2` |
-| 🎯 **Focus** | CSRF — Various Bypass Techniques |
+| 🎯 **Focus** | CSRF Basic — GET Method Bypass |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
@@ -126,7 +126,7 @@ The entire lab environment was built from scratch using:
 | | |
 |--|--|
 | 📁 **Folder** | `lab-3` |
-| 🎯 **Focus** | CSRF — Advanced Exploitation |
+| 🎯 **Focus** | CSRF Bypass by Omitting the CSRF Token |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
