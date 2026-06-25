@@ -22,15 +22,6 @@
 
 <br/>
 
-[![Made by](https://img.shields.io/badge/Made%20by-ali%20waled-blueviolet?style=for-the-badge)](https://github.com/the0x.pwn)
-[![Category](https://img.shields.io/badge/Category-Web%20Security-red?style=for-the-badge)](https://github.com/the0x.pwn)
-[![Labs](https://img.shields.io/badge/Labs-3%2B-brightgreen?style=for-the-badge)](https://github.com/the0x.pwn)
-[![Level](https://img.shields.io/badge/Level-Beginner%20to%20Advanced-orange?style=for-the-badge)](https://github.com/the0x.pwn)
-[![Stack](https://img.shields.io/badge/Stack-PHP%20MVC%20%2B%20Tailwind%20CSS-0ea5e9?style=for-the-badge)](https://github.com/the0x.pwn)
-[![License](https://img.shields.io/badge/License-Educational%20Use%20Only-yellow?style=for-the-badge)](https://github.com/the0x.pwn)
-
-</div>
-
 ---
 
 ## 📌 Overview
