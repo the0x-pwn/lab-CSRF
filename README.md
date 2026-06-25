@@ -33,19 +33,6 @@
 
 ---
 
-## 📖 Table of Contents
-
-- [Overview](#-overview)
-- [Tech Stack](#-tech-stack)
-- [Labs](#-labs)
-- [Credentials](#-credentials)
-- [How to Use](#-how-to-use)
-- [Learning Objectives](#-learning-objectives)
-- [Disclaimer](#-disclaimer)
-- [Author](#-author)
-
----
-
 ## 📌 Overview
 
 **CSRF Security Lab** is an open-source, self-hosted web security training environment built for:
@@ -75,6 +62,43 @@ The entire lab environment was built from scratch using:
 
 ---
 
+## 🗄️ Database Setup
+
+> ⚠️ **Required before running any lab** — the database must be imported first for login to work.
+
+The project includes a pre-built SQL file (`csrf.sql`) in the root of the repository. You **must import it** into your MySQL server before attempting to log in to any lab.
+
+### Steps
+
+**1. Create a new database:**
+```sql
+CREATE DATABASE csrf;
+```
+
+**2. Import the SQL file:**
+
+Using terminal:
+```bash
+mysql -u root -p csrf < csrf.sql
+```
+
+Using phpMyAdmin:
+- Select your database → click **Import** → choose `csrf.sql` → click **Go**
+
+**3. Configure the connection** in the project's config file:
+```php
+'host'     => 'localhost',
+'database' => 'csrf_lab',
+'username' => 'root',
+'password' => 'your_password',
+```
+
+**4. Done** — you can now log in to all labs using the credentials below.
+
+> 💡 The `csrf.sql` file contains all required tables and pre-seeded user accounts — no manual data entry needed.
+
+---
+
 ## 🧪 Labs
 
 > 🔒 Each lab targets a **different exploitation type** — ranging from completely unprotected endpoints to more sophisticated protection bypass methods. New labs are added continuously.
@@ -92,7 +116,7 @@ The entire lab environment was built from scratch using:
 | | |
 |--|--|
 | 📁 **Folder** | `lab-1` |
-| 🎯 **Focus** | CSRF — Token Basic |
+| 🎯 **Focus** | CSRF — Token Omission |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
@@ -109,7 +133,7 @@ The entire lab environment was built from scratch using:
 | | |
 |--|--|
 | 📁 **Folder** | `lab-2` |
-| 🎯 **Focus** | CSRF Basic — GET Method Bypass |
+| 🎯 **Focus** | CSRF — Various Bypass Techniques |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
@@ -126,10 +150,25 @@ The entire lab environment was built from scratch using:
 | | |
 |--|--|
 | 📁 **Folder** | `lab-3` |
-| 🎯 **Focus** | CSRF Bypass by Omitting the CSRF Token |
+| 🎯 **Focus** | CSRF — Advanced Exploitation |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
+---
+
+## 🔐 Credentials
+
+All labs share the same login credentials:
+
+```
+Email    :  csrf@lab.com
+Password :  csrf
+```
+
+| Field | Value |
+|-------|-------|
+| 📧 **Email** | `csrf@lab.com` |
+| 🔑 **Password** | `csrf` |
 
 ---
 
@@ -205,7 +244,7 @@ After completing all labs, you will be able to:
 
 <br/>
 
-**ali waleed**
+**ali waled**
 
 *Security Researcher & Lab Creator*
 
