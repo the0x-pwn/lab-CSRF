@@ -157,22 +157,6 @@ DB_CHARSET=utf8mb4
 
 ---
 
-## 🔐 Credentials
-
-All labs share the same login credentials:
-
-```
-Email    :  csrf@lab.com
-Password :  csrf
-```
-
-| Field | Value |
-|-------|-------|
-| 📧 **Email** | `csrf@lab.com` |
-| 🔑 **Password** | `csrf` |
-
----
-
 ## 🚀 How to Use
 
 ### Step 1 — Login
