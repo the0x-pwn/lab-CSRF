@@ -130,21 +130,6 @@ The entire lab environment was built from scratch using:
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
----
-
-## 🔐 Credentials
-
-All labs share the same login credentials:
-
-```
-Email    :  csrf@lab.com
-Password :  csrf
-```
-
-| Field | Value |
-|-------|-------|
-| 📧 **Email** | `csrf@lab.com` |
-| 🔑 **Password** | `csrf` |
 
 ---
 
