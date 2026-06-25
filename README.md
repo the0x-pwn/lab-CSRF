@@ -229,7 +229,7 @@ After completing all labs, you will be able to:
 
 <br/>
 
-**ali waled**
+**ali waleed**
 
 *Security Researcher & Lab Creator*
 
