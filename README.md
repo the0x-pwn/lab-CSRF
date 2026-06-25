@@ -117,7 +117,7 @@ DB_CHARSET=utf8mb4
 | | |
 |--|--|
 | 📁 **Folder** | `lab-1` |
-| 🎯 **Focus** | CSRF — Token Omission |
+| 🎯 **Focus** | CSRF Basic |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
@@ -134,7 +134,7 @@ DB_CHARSET=utf8mb4
 | | |
 |--|--|
 | 📁 **Folder** | `lab-2` |
-| 🎯 **Focus** | CSRF — Various Bypass Techniques |
+| 🎯 **Focus** | CSRF Basic — GET Method Bypass |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
@@ -151,7 +151,7 @@ DB_CHARSET=utf8mb4
 | | |
 |--|--|
 | 📁 **Folder** | `lab-3` |
-| 🎯 **Focus** | CSRF — Advanced Exploitation |
+| 🎯 **Focus** | CSRF Bypass by Omitting the CSRF Token |
 | ✅ **Status** | Available |
 | 🔑 **Credentials** | `csrf@lab.com` / `csrf` |
 
