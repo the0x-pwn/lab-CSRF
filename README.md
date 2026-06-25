@@ -87,10 +87,11 @@ Using phpMyAdmin:
 
 **3. Configure the connection** in the project's config file:
 ```php
-'host'     => 'localhost',
-'database' => 'csrf_lab',
-'username' => 'root',
-'password' => 'your_password',
+DB_NAME=csrf
+DB_HOST=localhost
+DB_USERNAME=root
+DB_PASSWORD=password
+DB_CHARSET=utf8mb4
 ```
 
 **4. Done** — you can now log in to all labs using the credentials below.
