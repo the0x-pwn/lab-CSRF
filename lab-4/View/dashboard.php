@@ -195,7 +195,7 @@
                     </div>
                     <span
                         style="font-size:11px; color:#4ade80; font-family:monospace; margin-left:4px; letter-spacing:0.05em; white-space:nowrap;">
-                        exploit.html — CSRF Bypass by Omitting the CSRF Token
+                        exploit.html — CSRF where token is not tied to user session
                     </span>
                     <button onclick="toggleSolution()" title="Close" style="margin-left:auto;margin-right:260px; background:transparent; border:none;
                            color:#6b7280; cursor:pointer; font-size:18px; line-height:1; padding:0 2px;">
