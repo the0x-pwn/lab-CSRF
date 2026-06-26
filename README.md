@@ -223,7 +223,7 @@ Change the **victim's email address** by forging a request that includes:
 ```
 
 > Replace the `TOKEN_ATTACKER` value with the attacker's value.
-
+--
 #### 🛡️ How to Fix This Vulnerability
 
 The correct mitigation is to **tie every CSRF token to a specific user session**:
