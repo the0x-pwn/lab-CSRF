@@ -224,6 +224,36 @@ Change the **victim's email address** by forging a request that includes:
 
 > Replace the `TOKEN_ATTACKER` value with the attacker's value.
 
+#### 🛡️ How to Fix This Vulnerability
+
+The correct mitigation is to **tie every CSRF token to a specific user session**:
+
+| ❌ Vulnerable Pattern | ✅ Secure Pattern |
+|---|---|
+| Token stored in a global pool | Token stored in `$_SESSION['csrf_token']` |
+| Server checks: *"does this token exist?"* | Server checks: *"does this token match the current session?"* |
+| Any valid token works for any user | Token is invalidated when the session ends |
+
+**Recommended fix in PHP:**
+
+```php
+// On form generation
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+// On form submission
+if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    http_response_code(403);
+    die('CSRF validation failed');
+}
+```
+
+Additional hardening:
+- Use `SameSite=Strict` or `SameSite=Lax` on session cookies
+- Rotate the CSRF token after every successful form submission
+- Validate the `Origin` or `Referer` header as a secondary check
+
+---
+
 ---
 
 ## 🚀 How to Use
@@ -294,35 +324,6 @@ After completing all labs, you will be able to:
 
 ---
 
-#### 🛡️ How to Fix This Vulnerability
-
-The correct mitigation is to **tie every CSRF token to a specific user session**:
-
-| ❌ Vulnerable Pattern | ✅ Secure Pattern |
-|---|---|
-| Token stored in a global pool | Token stored in `$_SESSION['csrf_token']` |
-| Server checks: *"does this token exist?"* | Server checks: *"does this token match the current session?"* |
-| Any valid token works for any user | Token is invalidated when the session ends |
-
-**Recommended fix in PHP:**
-
-```php
-// On form generation
-$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-
-// On form submission
-if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-    http_response_code(403);
-    die('CSRF validation failed');
-}
-```
-
-Additional hardening:
-- Use `SameSite=Strict` or `SameSite=Lax` on session cookies
-- Rotate the CSRF token after every successful form submission
-- Validate the `Origin` or `Referer` header as a secondary check
-
----
 ## 👤 Author
 
 <div align="center">
