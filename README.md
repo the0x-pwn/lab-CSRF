@@ -184,35 +184,6 @@ Build a CSRF payload tailored to the lab's vulnerability. A typical base payload
 
 > Each lab has a different target endpoint and parameters — adapt accordingly.
 
-### Step 4 — Reveal the Solution
-Stuck? Hit the **💡 Solution** button inside the lab to reveal the full working exploit and a detailed explanation of why the vulnerability exists and how the attack works.
-
----
-
-## 🎯 Learning Objectives
-
-After completing all labs, you will be able to:
-
-- ✅ Explain what CSRF is and how it differs from XSS or SQLi
-- ✅ Identify CSRF vulnerabilities in real PHP MVC applications
-- ✅ Craft working exploits for various CSRF scenarios
-- ✅ Bypass common (and flawed) CSRF protection implementations
-- ✅ Understand and apply proper mitigations: tokens, `SameSite` cookies, `Origin` validation
-
----
-
-## ⚠️ Disclaimer
-
-> This project is intended **strictly for educational purposes**.
->
-> All testing must be performed **only within this sandbox environment**.
->
-> Performing CSRF attacks against real systems **without explicit written permission is illegal** and unethical.
->
-> The author assumes **no responsibility** for any misuse of the content in this repository.
-
----
-
 ### 🔬 Lab 4
 
 <div align="center">
@@ -286,6 +257,35 @@ Change the **victim's email address** by forging a request that includes:
 ```
 
 > Replace `VALID_TOKEN_FROM_ATTACKER_SESSION` with a real token extracted from the attacker account's session.
+
+---
+
+### Step 4 — Reveal the Solution
+Stuck? Hit the **💡 Solution** button inside the lab to reveal the full working exploit and a detailed explanation of why the vulnerability exists and how the attack works.
+
+---
+
+## 🎯 Learning Objectives
+
+After completing all labs, you will be able to:
+
+- ✅ Explain what CSRF is and how it differs from XSS or SQLi
+- ✅ Identify CSRF vulnerabilities in real PHP MVC applications
+- ✅ Craft working exploits for various CSRF scenarios
+- ✅ Bypass common (and flawed) CSRF protection implementations
+- ✅ Understand and apply proper mitigations: tokens, `SameSite` cookies, `Origin` validation
+
+---
+
+## ⚠️ Disclaimer
+
+> This project is intended **strictly for educational purposes**.
+>
+> All testing must be performed **only within this sandbox environment**.
+>
+> Performing CSRF attacks against real systems **without explicit written permission is illegal** and unethical.
+>
+> The author assumes **no responsibility** for any misuse of the content in this repository.
 
 ---
 
