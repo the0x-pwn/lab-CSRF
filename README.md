@@ -222,7 +222,7 @@ Change the **victim's email address** by forging a request that includes:
 </html>
 ```
 
-> Replace `VALID_TOKEN_FROM_ATTACKER_SESSION` with a real token extracted from the attacker account's session.
+> Replace the `TOKEN_ATTACKER` value with the attacker's value.
 
 ---
 
