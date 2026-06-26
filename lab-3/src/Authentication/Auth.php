@@ -53,6 +53,12 @@ class Auth
         return false;
     }
 
+    public function logout()
+    {
+        session()->destroy();
+        response()->redirect('/');
+    }
+
     public static function isValidEmail(string $email): bool
     {
         $stmt = db()->prepare("SELECT COUNT(*) FROM users WHERE email = :email");

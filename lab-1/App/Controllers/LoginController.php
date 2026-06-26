@@ -17,10 +17,4 @@ class LoginController
         $password = request()->input('password');
         Auth::login($email, $password);
     }
-
-    public static function logout(): void
-    {
-        session()->destroy();
-        response()->redirect('/');
-    }
 }
