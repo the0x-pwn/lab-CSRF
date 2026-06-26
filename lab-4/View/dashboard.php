@@ -131,7 +131,7 @@
             <div class="flex justify-between items-center mb-12 pb-4 border-b border-zinc-800/60">
                 <div>
                     <h2 class="text-base font-semibold tracking-tight text-white">Lab Console Panel</h2>
-                    <p class="text-xs text-zinc-500">CSRF Bypass by Omitting the CSRF Token</p>
+                    <p class="text-xs text-zinc-500">CSRF where token is not tied to user session</p>
                 </div>
             </div>
 
