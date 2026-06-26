@@ -213,7 +213,6 @@ After completing all labs, you will be able to:
 
 ---
 
-
 ### 🔬 Lab 4
 
 <div align="center">
