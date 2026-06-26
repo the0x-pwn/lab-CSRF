@@ -213,6 +213,112 @@ After completing all labs, you will be able to:
 
 ---
 
+
+### 🔬 Lab 4
+
+<div align="center">
+<img src="img/lab-4.png" alt="CSRF Lab 4 — Screenshot" width="85%"/>
+</div>
+
+<br/>
+
+| | |
+|--|--|
+| 📁 **Folder** | `lab-4` |
+| 🎯 **Focus** | CSRF where token is not tied to user session |
+| ✅ **Status** | Available |
+| 🔑 **Victim Account** | `victim@lab.com` / `csrf` |
+| 🔑 **Attacker Account** | `attacker@lab.com` / `attacker` |
+
+---
+
+#### 🔍 How the Vulnerability Works
+
+Most CSRF protections rely on a token — a random value embedded in the form that the server checks before processing the request. The assumption is: *only the legitimate user can produce a valid token because it's tied to their session.*
+
+But what if the server **generates valid tokens independently of any session**?
+
+That's exactly what this lab demonstrates. The application:
+1. Issues CSRF tokens that are **valid globally** — not bound to the session that requested them
+2. Never verifies that the token presented matches the session making the request
+3. Only checks: *"Is this a valid token?"* — not: *"Does this token belong to this user?"*
+
+This means an attacker can:
+- Log in with their **own account**
+- Intercept or extract a **valid CSRF token** from their own session
+- Embed that token into a malicious page
+- Trick the **victim** into loading that page
+- The victim's browser submits the request with **their session cookies + the attacker's valid token**
+- The server accepts it ✅
+
+---
+
+#### 🎯 Attack Objective
+
+Change the **victim's email address** by forging a request that includes:
+- The victim's authenticated session (automatically sent by the browser via cookies)
+- A valid CSRF token stolen from the **attacker's own session**
+
+---
+
+#### 🧪 Exploit Template
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF PoC — Lab 4</title>
+</head>
+<body>
+  <form id="csrfForm"
+        action="http://TARGET/change-email"
+        method="POST"
+        style="display:none;">
+    <input type="hidden" name="email" value="attacker@evil.com">
+    <!-- Token stolen from attacker's own valid session -->
+    <input type="hidden" name="csrf_token" value="VALID_TOKEN_FROM_ATTACKER_SESSION">
+  </form>
+  <script>
+    document.getElementById('csrfForm').submit();
+  </script>
+</body>
+</html>
+```
+
+> Replace `VALID_TOKEN_FROM_ATTACKER_SESSION` with a real token extracted from the attacker account's session.
+
+---
+
+#### 🛡️ How to Fix This Vulnerability
+
+The correct mitigation is to **tie every CSRF token to a specific user session**:
+
+| ❌ Vulnerable Pattern | ✅ Secure Pattern |
+|---|---|
+| Token stored in a global pool | Token stored in `$_SESSION['csrf_token']` |
+| Server checks: *"does this token exist?"* | Server checks: *"does this token match the current session?"* |
+| Any valid token works for any user | Token is invalidated when the session ends |
+
+**Recommended fix in PHP:**
+
+```php
+// On form generation
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+// On form submission
+if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    http_response_code(403);
+    die('CSRF validation failed');
+}
+```
+
+Additional hardening:
+- Use `SameSite=Strict` or `SameSite=Lax` on session cookies
+- Rotate the CSRF token after every successful form submission
+- Validate the `Origin` or `Referer` header as a secondary check
+
+---
 ## 👤 Author
 
 <div align="center">
